@@ -19,5 +19,5 @@ Content:
 		cors
     
 		cheerio
-		
-    ![alt text](https://github.com/flaciGit/d3SeasonDateWithAngular/blob/master/pic/img.png?raw=true)
+	
+![alt text](https://github.com/flaciGit/d3SeasonDateWithAngular/blob/master/pic/img.png?raw=true)
