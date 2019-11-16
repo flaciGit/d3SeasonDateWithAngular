@@ -1,0 +1,70 @@
+<div class="text-center" style="margin-top:20px">
+    <h1 class="display-4">Diablo 3 Season duration statistics</h1>
+</div>
+<br>
+
+<table class="table table-striped" *ngIf="statistics[0]">
+    <tbody>
+        <tr>
+            <td>Average Season Length (days):</td>
+            <td>{{ statistics[0].averageLength }}</td>
+        </tr>
+        <tr>
+            <td>Average Days Between Seasons:</td>
+            <td>{{ statistics[0].averageBetween }}</td>
+        </tr>
+        <tr *ngIf="statistics[0].nextSeason90">
+            <td>Calculated Season End Date (+90 days):</td>
+            <td>{{ statistics[0].nextSeason90 }}</td>
+        </tr>
+        <tr *ngIf="statistics[0].nextSeasonAvg">
+            <td>Calculated Season End Date (+average days):</td>
+            <td>{{ statistics[0].nextSeasonAvg }}</td>
+        </tr>
+
+        <tr *ngIf="statistics[0].nextSeasonStart">
+            <td>Calculated Season Start Date (+5 days):</td>
+            <td>{{ statistics[0].nextSeasonStart }}</td>
+        </tr>
+        <tr *ngIf="statistics[0].nextSeasonStartAvg">
+            <td>Calculated Season Start Date (+average days):</td>
+            <td>{{ statistics[0].nextSeasonStartAvg }}</td>
+        </tr>
+
+    </tbody>
+</table>
+<br>
+
+
+<table class="table table-striped" *ngIf="seasonDates.length > 0">
+    <thead>
+        <tr class="tableheadrow">
+            <th style="text-align:left;">
+                #
+            </th>
+            <th style="text-align:center;">
+                Start Date
+            </th>
+            <th style="text-align:center;">
+                End Date
+            </th>
+            <th style="text-align:right;">
+                Season Duration (days)
+            </th>
+            <th style="text-align:right;">
+                Time between seasons (days)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <ng-container *ngFor="let s of seasonDates; let i = index">
+            <tr>
+                <td style="text-align:left;">{{ i+1 }}</td>
+                <td style="text-align:center;">{{ s.start }}</td>
+                <td style="text-align:center;">{{ s.end }}</td>
+                <td style="text-align:right;">{{ s.duration }}</td>
+                <td style="text-align:right;">{{ s.between }}</td>
+            </tr>
+        </ng-container>
+    </tbody>
+</table>
